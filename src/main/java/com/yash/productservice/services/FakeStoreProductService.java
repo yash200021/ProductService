@@ -3,11 +3,6 @@ package com.yash.productservice.services;
 import com.yash.productservice.dtos.FakeStoreProductDTO;
 import com.yash.productservice.dtos.ProductResponseDTO;
 import com.yash.productservice.models.Product;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -69,5 +64,9 @@ public class FakeStoreProductService implements ProductService{
         restTemplate.put(url + id,fakeStoreProductDTO);
     }
 
-
+    @Override
+    public void deleteProduct(Long id) {
+        String url="https://fakestoreapi.com/users/" + id;
+        restTemplate.delete(url);
+    }
 }
