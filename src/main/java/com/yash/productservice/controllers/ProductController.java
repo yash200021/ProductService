@@ -5,6 +5,7 @@ import com.yash.productservice.dtos.ProductResponseDTO;
 import com.yash.productservice.models.Product;
 import com.yash.productservice.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,8 +13,11 @@ import java.util.List;
 @RestController
 public class ProductController {
 
-    @Autowired
     private ProductService productService;
+
+    public ProductController(@Qualifier("selfproductservice") ProductService productService) {
+        this.productService = productService;
+    }
 
     @PostMapping("/products")
     public Product createProduct(@RequestBody ProductResponseDTO productResponseDTO){

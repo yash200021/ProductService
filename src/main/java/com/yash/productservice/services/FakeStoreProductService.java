@@ -2,6 +2,7 @@ package com.yash.productservice.services;
 
 import com.yash.productservice.dtos.FakeStoreProductDTO;
 import com.yash.productservice.dtos.ProductResponseDTO;
+import com.yash.productservice.models.Category;
 import com.yash.productservice.models.Product;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -46,7 +47,7 @@ public class FakeStoreProductService implements ProductService{
         fakeStoreProductDTO.setDescription(productResponseDTO.getDescription());
         fakeStoreProductDTO.setPrice(productResponseDTO.getPrice());
         fakeStoreProductDTO.setImage(productResponseDTO.getImage());
-        fakeStoreProductDTO.setCategory(productResponseDTO.getCategory());
+        fakeStoreProductDTO.setCategory(new Category(productResponseDTO.getCategory()));
         FakeStoreProductDTO fakeStoreProductDTO1 = restTemplate.postForObject(url,fakeStoreProductDTO,FakeStoreProductDTO.class);
         Product product = fakeStoreProductDTO1.toProduct();
         return product;
@@ -60,7 +61,7 @@ public class FakeStoreProductService implements ProductService{
         fakeStoreProductDTO.setDescription(productResponseDTO.getDescription());
         fakeStoreProductDTO.setPrice(productResponseDTO.getPrice());
         fakeStoreProductDTO.setImage(productResponseDTO.getImage());
-        fakeStoreProductDTO.setCategory(productResponseDTO.getCategory());
+        fakeStoreProductDTO.setCategory(new Category(productResponseDTO.getCategory()));
         restTemplate.put(url + id,fakeStoreProductDTO);
     }
 

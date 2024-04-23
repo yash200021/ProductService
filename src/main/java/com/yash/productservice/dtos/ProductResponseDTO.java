@@ -1,5 +1,6 @@
 package com.yash.productservice.dtos;
 
+import com.yash.productservice.models.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

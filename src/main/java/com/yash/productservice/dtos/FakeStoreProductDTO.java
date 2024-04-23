@@ -1,6 +1,7 @@
 package com.yash.productservice.dtos;
 
 
+import com.yash.productservice.models.Category;
 import com.yash.productservice.models.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +16,7 @@ public class FakeStoreProductDTO {
     private Long id;
     private String title;
     private double price;
-    private String category;
+    private Category category;
     private String description;
     private String image;
 
