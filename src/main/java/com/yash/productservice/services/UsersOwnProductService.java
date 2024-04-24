@@ -24,12 +24,13 @@ public class UsersOwnProductService implements ProductService{
     }
     @Override
     public Product getSingleProduct(Long id) {
-        return productRepository.findById(id).get();
+        return productRepository.findByIdIs(id);
     }
 
     @Override
     public List<Product> getAllProducts() {
-        return List.of();
+
+        return productRepository.findAll();
     }
 
     @Override
